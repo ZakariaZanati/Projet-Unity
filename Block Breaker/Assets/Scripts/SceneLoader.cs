@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 
+    int numLevel;
+
+
+
 	public void LoadNextScene()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        numLevel = PlayerPrefs.GetInt("NumLevel");   
+        SceneManager.LoadScene(numLevel+1);
+        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
     }
 
     public void LoadStartScene()
     {
-        SceneManager.LoadScene(0);
-        FindObjectOfType<GameSession>().ResetGame();
+        
+        SceneManager.LoadScene(numLevel);
+        //FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void QuitGame()
