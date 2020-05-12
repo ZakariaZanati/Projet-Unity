@@ -28,4 +28,12 @@ public class SceneLoader : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public static int ActualLevel(){
+        return PlayerPrefs.GetInt("NumLevel");
+    }
+
+    public static int ActualScore(){
+        return PlayerPrefs.GetInt("Score");
+    }
 }
